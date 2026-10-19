@@ -42,7 +42,7 @@
 <!-- Your community, and what your classifier sorts posts into. Three or four
      sentences. -->
 
-
+This project classifies discussions from r/edmproduction (specifically threads centered on electronic and house music production, mixing, and sound design). It sorts user comments and text posts into three operational categories: actionable technical analysis, dogmatic hot takes, and personal/conversational reactions. The goal is to separate substantive engineering and sound-design advice from casual social commentary and prescriptive opinion.
 
 ---
 
@@ -55,9 +55,9 @@
      people leave out. Every taxonomy has a hardest boundary. Name yours. -->
 
 ### `label_one`
-
+`analysis`
 **Definition:**
-
+Provides verifiable, step-by-step technical guidance, cites specific numerical parameters (dB, Hz, kHz, specs), or breaks down an objective workflow method.
 **Example 1:**
 >
 
@@ -65,14 +65,25 @@
 >
 
 ### `label_two`
-
+`hot_take`
 **Definition:**
-
+Delivers a blunt, prescriptive opinion, universal rule, or strong workflow dogma without empirical breakdown or nuanced context.
 **Example 1:**
 >
 
 **Example 2:**
 >
+
+### `label_three`
+`reaction`
+**Definition:**
+Expresses subjective emotion, personal learning struggles, conversational agreement/acknowledgment, or casual praise.
+**Example 1:**
+>
+
+**Example 2:**
+>
+
 
 ### The hardest boundary
 
