@@ -51,19 +51,19 @@ whether you hit them:
 
 ---
 
-## 1.
+## 1. Overall test set accuracy is at least 65% (0.65).
 
 <!-- Your criterion. It must name a number. -->
 
-
-
 **Why this target:**
+
+With three roughly equal classes (~33% random baseline), a simple majority or random guesser achieves around 33.3%. An overall accuracy of 0.65 requires the model to correctly identify nearly two out of every three held-out posts, demonstrating that it has learned meaningful structural patterns rather than relying on class frequency shortcuts.
 
 
 
 ---
 
-## 2.
+## 2. Unweighted Macro F1 across all three classes is at least 0.60.
 
 <!-- Your criterion. -->
 
@@ -71,11 +71,11 @@ whether you hit them:
 
 **Why this target:**
 
-
+Macro F1 penalizes models that sacrifice a challenging class to boost accuracy on an easy one. Because our dataset is evenly partitioned across `analysis`, `hot_take`, and `reaction`, each class must perform reliably without any single label dragging down the average.
 
 ---
 
-## 3.
+## 3. F1 score for `analysis` is at least 0.60.
 
 <!-- Your criterion. -->
 
@@ -83,11 +83,23 @@ whether you hit them:
 
 **Why this target:**
 
+`analysis` posts contain explicit technical terms and numerical metrics (dB, Hz, kHz), giving the model distinct vocabulary markers to reach 0.60.
+
+---
+
+## 4. F1 score for `reaction` is at least 0.60.
+<!-- Your criterion. -->
+
+
+
+**Why this target:**
+
+`reaction` comments exhibit clear subjective cues, emotional markers, and first-person anecdotes that distinguish them from objective advice.
 
 
 ---
 
-## 4.
+## 5. F1 score for `hot_take` is at least 0.50.
 
 <!-- Your criterion. -->
 
@@ -95,19 +107,7 @@ whether you hit them:
 
 **Why this target:**
 
-
-
----
-
-## 5.
-
-<!-- Your criterion. -->
-
-
-
-**Why this target:**
-
-
+`hot_take` is our hardest boundary class—sharing imperative technical themes with `analysis` and subjective opinion with `reaction`—justifying a realistic floor of 0.50.
 
 ---
 
