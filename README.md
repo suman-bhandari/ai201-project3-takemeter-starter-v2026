@@ -59,40 +59,40 @@ This project classifies discussions from r/edmproduction (specifically threads c
 **Definition:**
 Provides verifiable, step-by-step technical guidance, cites specific numerical parameters (dB, Hz, kHz, specs), or breaks down an objective workflow method.
 **Example 1:**
->
+> "First off, you’re not alone on this confusion. Good for you to take the time to learn! Regarding your question, the sample rate must be doubled in order to prevent aliasing which sounds bad. This is based off of the Nyquist Theory which essentially is a mathematical rule for converting analog audio to digital signals or vise versa."
 
 **Example 2:**
->
+> "I got a 16” 2021 MacBook M1 Pro for about $1100 after tax from eBay. 1TB hard drive, 32 GB RAM, M1 Pro chip. They have a lot of good trusted sellers that come with a one year warranty."
 
 ### `label_two`
 `hot_take`
 **Definition:**
 Delivers a blunt, prescriptive opinion, universal rule, or strong workflow dogma without empirical breakdown or nuanced context.
 **Example 1:**
->
+> "Clip drums, limit or clip mid bass, leave sub alone. If it’s not loud enough turn sub down and mid bass up. Leave master alone except for maybe clipper or limiter just for volume."
 
 **Example 2:**
->
+> "Stop buying third party plugins. Ableton stock plugins are objectively better than 90% of Waves or FabFilter tools if you actually know what the knobs do."
 
 ### `label_three`
 `reaction`
 **Definition:**
 Expresses subjective emotion, personal learning struggles, conversational agreement/acknowledgment, or casual praise.
 **Example 1:**
->
+> "Ahhh i miss the days of spending hours on the most basic things...I think most people start the same way you are. My advice when you start is dont try to recreate exactly what's in your mind, my best work comes from experimenting and finding things that just happen to sound good."
 
 **Example 2:**
->
+> "I tried to start with Ableton and had the same problem figuring out basic operations. I hadn't realized there were better tutorials available. I found FL Studio much easier to get started with and didn't need tutorials in the beginning. Some people have exactly the opposite experience, just depends on how they're wired."
 
 
 ### The hardest boundary
 
-**Which two labels:**
+**Which two labels:** `hot_take` vs. `analysis`
 
 **The decision rule I used every time:**
 <!-- e.g. "If the post names a specific checkable fact, it's `analysis`, even
      if the tone is heated." -->
-
+If a post gives prescriptive advice or asserts a rule of thumb, it is classified as `analysis` only if it provides a specific, verifiable parameter or explains *why/how* the DSP/physics works (e.g., citing exact dB/Hz targets, filter slopes, or Nyquist/aliasing principles). If it delivers imperative rules or commands without verifiable numbers or explanatory mechanics (e.g., "always clip your drums", "never put a limiter on master"), it is classified as `hot_take`, regardless of how confident or accurate the advice sounds.
 
 
 ---
