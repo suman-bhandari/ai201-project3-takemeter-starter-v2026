@@ -103,18 +103,20 @@ If a post gives prescriptive advice or asserts a rule of thumb, it is classified
      cases. -->
 
 **Where the posts came from:**
+Public top-level comments and self-posts collected from Reddit's `r/edmproduction` community, focused on discussion threads concerning house music production, mixing workflows, sound design, and DAW setups.
 
 **How I labelled them:** <!-- Cold first? Pre-labelled with AI and corrected?
 Say so plainly — the disclosure is required, not penalised. -->
+I labeled the first 20 posts completely cold (manually without tools or assistance) to establish ground truth and verify taxonomy boundaries. The remaining 180 posts were pre-labeled using an AI prompt containing the exact label definitions and decision rules, followed by manual review where I read and verified or corrected every individual classification. Rows are marked `cold` and `pre-labelled; checked` in the `note` column.
 
 **Counts per label:**
 
 | Label | Count | Share |
 |---|---|---|
-|  |  |  |
-|  |  |  |
-|  |  |  |
-| **Total** |  | 100% |
+| `analysis` | 67 | 33.5% |
+| `hot_take` | 67 | 33.5% |
+| `reaction` | 66 | 33.0% |
+| **Total** | 200 | 100% |
 
 **Three hard cases**
 
@@ -122,25 +124,25 @@ Say so plainly — the disclosure is required, not penalised. -->
      been, and what you chose. These are worth more than the easy 190. -->
 
 **1.**
-> *The post:*
->
-> *Could have been:*
->
-> *I chose, because:*
+> *The post:* "Small amounts of clipping at multiple stages. Clip your Snare track, clip your drum bus, clip your master. True peak limiter can help - many of us use FabFilter's Pro L2. Saturate low end instruments and lower the resulting harsh brightness with a high shelf. EQ out some of the muddy 250-500hz range. Check your low end with a spectrum analyzer and make tame any wild bass frequencies with a multiband compressor. That's all I got for now."
+
+> *Could have been:* `analysis` or `hot_take`
+
+> *I chose, because:* I chose `hot_take`. While it mentions specific frequency ranges (250–500 Hz) and plugins, the post reads as a rapid-fire list of prescriptive workflow rules ("clip this, clip that, saturate this") without explaining the acoustic mechanics, why those specific stages need clipping, or how to set the parameters. Under the decision rule, rapid prescriptive dogma without empirical grounding falls under `hot_take`.
 
 **2.**
-> *The post:*
->
-> *Could have been:*
->
-> *I chose, because:*
+> *The post:* "This has nothing to with depth, this is specifically what makes mixes flat. It's easy as shit to get loud, depth is not."
+
+> *Could have been:* `hot_take` or `reaction`
+
+> *I chose, because:* I chose `reaction`. While the claim borders on a hot take regarding loudness versus depth, the tone is an immediate, frustrated conversational counter-response to another commenter rather than an unprompted standalone thesis or broad workflow rule.
 
 **3.**
-> *The post:*
->
-> *Could have been:*
->
-> *I chose, because:*
+> *The post:* "Soothe 2 has the most insane algorithm for cleaning up sounds. As a heavy dubstep producer I use this in a lot of places, including a soft one on the master. It really is that good, and it's nearly impossible to replicate it properly"
+
+> *Could have been:* `reaction` or `hot_take`
+
+> *I chose, because:* I chose `hot_take`. Although it describes personal usage ("as a heavy dubstep producer I use this"), the central premise makes an assertive, unqualified claim about a commercial tool's algorithm and indispensability ("nearly impossible to replicate it properly") rather than merely expressing personal emotion or beginner confusion.
 
 ---
 
