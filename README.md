@@ -150,17 +150,29 @@ I labeled the first 20 posts completely cold (manually without tools or assistan
 
 <!-- Your starting model, your settings, and anything you changed and why. -->
 
-**Base model:**
+**Base model:** `distilbert-base-uncased`
 
 **Settings:** <!-- epochs, learning rate, batch size, seed -->
+* Epochs: 3
+* Learning Rate: 2e-5
+* Batch Size: 16
+* Max Token Length: 128
+* Seed: 42
 
-**Anything I changed from the defaults, and why:**
+**Anything I changed from the defaults, and why:** None. Kept the starter default hyperparameters to establish an unperturbed baseline for comparing against Unit 6 multi-seed runs.
 
 **Split sizes:** <!-- train / val / test, and per-label counts in the test
 split. If a label had fewer than about 8 in test, say so — it explains a lot
 of next unit's variance. -->
 
-
+* Train: 140 posts (70%)
+* Validation: 30 posts (15%)
+* Test: 30 posts (15%)
+* Per-label counts in test split:
+  * `analysis`: 10
+  * `hot_take`: 10
+  * `reaction`: 10
+* All labels have 10 examples in the test split, which is above the 8-example threshold, minimizing extreme single-sample variance during evaluation.
 
 ---
 
@@ -175,17 +187,17 @@ of next unit's variance. -->
 
 **Moment 1**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Generated 8 synthetic edge-case posts sitting directly on the boundary between `hot_take` and `analysis` to stress-test whether our taxonomy definitions were deterministic.
+- *What came back:* Examples mixing prescriptive recommendations with technical terminology (e.g., sidechain compression advice, FabFilter recommendations, and monitoring guidelines).
+- *What I changed:* Refined the decision rule to strictly state that imperative workflow commands belong to `hot_take` unless they cite an explicit checkable parameter (dB, Hz, kHz, latency samples) or explain the underlying acoustic/DSP theory.
 
 **Moment 2**
 
-- *What I asked for:*
-- *What came back:*
-- *What I changed:*
+- *What I asked for:* Detected and resolved parsing errors in `labels.csv` where unquoted commas inside raw Reddit comments broke the 3-column CSV schema (`text,label,note`).
+- *What came back:* An RFC 4180 compliant CSV formatting fix wrapping all multiline and comma-separated post texts in standard double quotes.
+- *What I changed:* Re-exported the cleaned dataset, verifying that all 200 posts parse cleanly into Pandas without column misalignment.
 
-**Pre-labelling disclosure:**
+**Pre-labelling disclosure:** The first 20 rows were labeled entirely cold without any AI assistance to establish ground truth. The remaining 180 rows were pre-classified by an LLM prompted with the three label definitions and decision rules. Following automated pre-labeling, every single item was individually reviewed, audited, and corrected by hand to maintain strict boundary adherence. Rows are explicitly marked as `cold` or `pre-labelled; checked` in the `note` column.
 
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
