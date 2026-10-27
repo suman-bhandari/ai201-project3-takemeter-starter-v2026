@@ -213,19 +213,24 @@ of next unit's variance. -->
 
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.500 | 0.800 | +0.300 |
+| Macro F1 | 0.423 | 0.795 | +0.373 |
+| F1 — `analysis` | 0.706 | 0.818 | +0.112 |
+| F1 — `hot_take` | 0.000 | 0.818 | +0.818 |
+| F1 — `reaction` | 0.563 | 0.750 | +0.187 |
+
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
+     I predicted that the trained model would beat the zero-shot baseline most substantially on `hot_take` and `analysis` F1 scores, because distinguishing between dogmatic workflow imperatives ("always clip the master") and evidence-backed technical guidance ("cut 250 Hz with a Q of 1.2") relies heavily on recognizing domain-specific community idioms and technical thresholds that a general zero-shot model without fine-tuning often conflates.
 
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
+     The massive +0.300 gain in overall accuracy (0.500 to 0.800) and +0.373 gain in Macro F1 (0.423 to 0.795) are almost entirely driven by the baseline completely collapsing on `hot_take` (F1 score of 0.000 vs. 0.818 trained). 
 
+     Without fine-tuning on community data, the general baseline model could recognize obvious technical explanations (`analysis`, 0.706 F1) and emotional venting (`reaction`, 0.563 F1), but it was incapable of identifying the intermediate boundary where unbacked, prescriptive advice is delivered with high confidence. The baseline consistently sorted dogmatic assertions into either `analysis` (because they talked about production gear/plugins) or `reaction` (because of aggressive, opinionated tone). Fine-tuning on 140 training examples gave the classifier the precise boundary signal needed to operationalize workflow dogma as `hot_take`, turning a completely unlearned category into a high-performing label (0.818 F1).
 
 
 ---
@@ -237,29 +242,29 @@ of next unit's variance. -->
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.65 | 0.800 | 0.833 | 0.767 | MET |
+| 2. Macro F1 | ≥ 0.60 | 0.795 | 0.828 | 0.743 | MET |
+| 3. F1 — `analysis` | ≥ 0.60 | 0.818 | 0.952 | 0.800 | MET |
+| 4. F1 — `reaction` | ≥ 0.60 | 0.750 | 0.750 | 0.857 | MET |
+| 5. F1 — `hot_take` | ≥ 0.50 | 0.818 | 0.783 | 0.571 | MET |
 
 ### Confusion matrix
 
 <!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
      An image of a matrix earns nothing. -->
 
-| true \ predicted |  |  |  |
+| true \ predicted | analysis | hot_take | reaction |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **analysis** | 9 | 1 | 0 |
+| **hot_take** | 1 | 9 | 0 |
+| **reaction** | 2 | 2 | 6 |
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
 
-
+     The largest off-diagonal value is tied at 2, where real `reaction` posts were misclassified as `analysis` (2 posts) and as `hot_take` (2 posts), while zero real `analysis` or `hot_take` posts were predicted as `reaction`. This asymmetric leakage shows that when users share personal setup stories or studio anecdotes containing equipment names, the model frequently misreads those domain keywords as technical evidence (`analysis`) or opinionated rules (`hot_take`), whereas it never mistakenly dilutes true technical advice into casual reactions.
 
 ---
 
