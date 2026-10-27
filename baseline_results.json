@@ -1,0 +1,184 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 30,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 30,
+    "accuracy": 0.5,
+    "f1_macro": 0.4227941176470589,
+    "per_label": {
+      "analysis": {
+        "precision": 0.8571428571428571,
+        "recall": 0.6,
+        "f1": 0.7058823529411764,
+        "support": 10
+      },
+      "hot_take": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 10
+      },
+      "reaction": {
+        "precision": 0.4090909090909091,
+        "recall": 0.9,
+        "f1": 0.5625000000000001,
+        "support": 10
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": "This is a perfect explanation. HOWEVER, it is generally expected to be working in your daw at 48k 32bit. This is useful for a number of reasons. Similar to why a photographer will shoot in raw, or a videographer will record in 4k. Yes the end result will be rendered at 1080p, but if you record at 4k then you will be able to crop your shots without losing quality. The same applies to audio. Recording at 48k will reduce artifacts produced by anti-aliasing.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "It sound rlly good! cant wait to see the mastered version. Also may be some automations on the bass might sound good. the bass might be the weakest part but it sound rlly good! rlly like the vocals also.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "I feel some psychedelic vibe there and I like it.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "They use popular videogame fps, they can do the same for popular synths like number of serum instances at standard quality and 16 voice saw waves on the 2 oscillators and the cpu use/ temperature. Every cpu will hit a limit according to the amount of oversampling and taxing plugins, one instance of UAD anthem consumes 60% of my 14 cores 20 threads i9 12900H, add to it one instance of Eventide split eq and it's at 90% in silent mode while 60% in balanced mode.",
+      "gold": "analysis",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Well no. You're right that frequencies at exactly half the sample rate will not be reproduced at all (and frequencies close to half the sample rate will be attenuated), you can see these notches in the frequency spectrum if you apply sample rate reduction to noise or a harmonically rich sound. But the frequency isn't limited to half the sample rate. You will still get audio information if you try to record a frequency higher than half the sample rate, it will just end up being the wrong frequency. Hence, aliasing. The frequency you hear will be represented by 2N-F where N is half the sample rate and F is the recorded frequency.",
+      "gold": "analysis",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Failure is one of the keys to success as it compels you to improve.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Literally my first day on it lol is that easier than a YouTube instruction? I figured the built in one would be super basic.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Just do what you're good at.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "You can make a blank midi track in most daws and route it to the Shaperbox instance and select midi in the 3 trigger options. I think the default midi note for triggering is C.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Listen to some reference tracks. And remember. It's a stylistic choice. Not a right or wrong.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "I have my macbook pro, where I'd like to pretend I just keep the mixer, various plugin windows and such but it's mostly for slack and whatsapp and sometimes youtube.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "There may not be benchmarks out there persay for audio workstations/DAWS, but the specs are out there to make a determination. And those 3 industries can cover all the baselines you need to figure out what goes in your rig. Gaming is going to be GPU heavy, so hardly any relevance in your decision for building a rig. Video production is mixed with GPU rendering as well as single core and multi-core processes. And photoshop is primarily CPU bound, but not entirely. At the end of the day, your DAW needs fast, single core, low latency processing. Increased core count can distribute some loads within the daw, but the bottleneck will always be your clock rate and single core processing power. I just upgraded my PC this weekend, granted some specs are overkill, but i bought the parts from a friend for cheap so I can\u2019t complain. I got a Ryzen 8 Core/16 thread unlocked, clocked at 4.6 GhZ, Strix X570-E, 2080TI, 32 GB 3200 MhZ Dominator Platinum Ram, and a 1TB SSD connected via SATA. My old rig was an X99 Gigabyte G1 Gaming motherboard, 4 core xeon, 32 GB Dominator Ram, and an HDD. Before upgrading Ableton hovered nominally at 7-9% CPU load just with an empty project, could hardly run Serum 2, and would crash constantly when doing huge voiced saws/sounds. So much so I was constantly producing under 44.1K sample rate, and had to use a ridiculously high buffer size. So i had tons of round trip latency in my system, but was the only way I could make due with my Pc at the time. I stress tested my new Ryzen this weekend, and it took 3 OSC in Serum 2, with 16 voices each, playing 10 keys simultaneously (480 voices) for my session to shit out. My CPU utilization is at 0% nominally now, and i\u2019ve yet to open a normal session/project and see utilization over 30% at peak processing times. So there aren\u2019t many benchmarks out there to determine pure functionality within a DAW/Audio Workstation, but the specs, knowledge, and resources are out there to make an informed decision as to what you should and should not put in your rig.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "This has nothing to with depth, this is specifically what makes mixes flat. It's easy as shit to get loud, depth is not.",
+      "gold": "reaction",
+      "predicted": "hot_take"
+    },
+    {
+      "text": "I tried to start with Ableton and had the same problem figuring out basic operations. I hadn't realized there were better tutorials available. I found FL Studio much easier to get started with and didn't need tutorials in the beginning. Some people have exactly the opposite experience, just depends on how they're wired.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Ahhh i miss the days of spending hours on the most basic things...I think most people start the same way you are. My advice when you start is dont try to recreate exactly what's in your mind, my best work comes from experimenting and finding things that just happen to sound good.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Download some free 909 kicks and learn how to process them yourself. Save you money, teaches you about sound design and production.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "The best way to improve in my opinion is to simply create relentlessly.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Depth is a vague term used by non technical audiophiles - use precise language!",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "It's not wrong if it sounds right.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "If the effective sample rate is boosted, nearly all of the digital artefacts are produced above 20kHz and can then be filtered out when down sampled back to the project rate. The more non-linearity (distortion) in the processing, the more important handling the artefacts becomes. So you really want it done well on guitar amp sims, but it's probably irrelevant for a clean reverb plugin for example.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Whenever you perform any processing on your sound that involves resampling (tuning, stretching, reverb, delay..) you will introduce sampling artifacts. The higher your source sample rate the fewer those artifacts. Always work with the highest sample rate possible when producing and only downsample during export for best results.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "You have to accept that the music you are making is for clubs and parties, and that's where the other DJs and producers are. Those communities aren't going to come to your bedroom.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "These are great questions, I'm so sorry I don't have an answer, but I will be following!",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "First off, you\u2019re not alone on this confusion. Good for you to take the time to learn! Regarding your question, the sample rate must be doubled in order to prevent aliasing which sounds bad. This is based off of the Nyquist Theory which essentially is a mathematical rule for converting analog audio to digital signals or vise versa.",
+      "gold": "analysis",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Clippers don't need a release time. Generally far more forgiving as your crest level tightens up. Designed differently to serve different purposes.",
+      "gold": "analysis",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Always put an EQ (cut extreme lows and highs) and limiter on your master when you're experimenting and get in the habit of saving your work and keeping everything organized early on.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "I can't hear an issue but I don't fully trust my ears yet.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "I've spent 3 hours tonight at my desk and barely know how to add in a kick.",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "You guys need to accept that EVERY software company in the world (yes, even the ones you like) ARE using AI right now to make their software. Your favourite DAW. Yep. It's AI coded now.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "This is standard practice for sound design and is actually part of many plugins. Usually to keep a clean sub bass (e.g. Serum's direct out sub oscillator, or any of Minimal Audio's plugins, Cableguy's Shaperbox etc.)",
+      "gold": "analysis",
+      "predicted": "analysis"
+    }
+  ]
+}
