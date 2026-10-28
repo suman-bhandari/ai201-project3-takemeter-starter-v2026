@@ -275,11 +275,11 @@ of next unit's variance. -->
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy | ≥ 0.65 | MET | Lowest seed was Seed 2024 at 0.767, holding well above the 0.65 threshold across all three trials (0.800, 0.833, 0.767). |
+| 2 | Macro F1 | ≥ 0.60 | MET | Held comfortably above target on all three seeds (0.795, 0.828, 0.743; lowest margin +0.143). |
+| 3 | F1 — `analysis` | ≥ 0.60 | MET | Exceeded the floor in every run (0.818, 0.952, 0.800), benefiting from unambiguous technical terms and numerical parameters. |
+| 4 | F1 — `reaction` | ≥ 0.60 | MET | Consistent performance across all runs (0.750, 0.750, 0.857), comfortably clearing the 0.60 floor. |
+| 5 | F1 — `hot_take` | ≥ 0.50 | MET | Passed across all three runs (0.818, 0.783, 0.571), though Seed 2024 came closest to the floor due to boundary variance. |
 
 **Diagnoses**
 
@@ -291,7 +291,15 @@ of next unit's variance. -->
      ⚠️ Use your agreement report as evidence. It is the only instrument you
      have that can tell a LABELLING problem from a MODEL problem, and this
      section is graded on whether you used it that way. -->
+     While all five criteria technically met their pre-registered targets, Criterion 5 (`hot_take` F1 ≥ 0.50) exhibited significant instability across splits, swinging by 0.247 (from 0.818 down to 0.571 on Seed 2024). Diagnosing this near-miss reveals critical insights into our boundary mechanics:
 
+     1. The Root Cause: Genuinely Hard Boundary Pair (`hot_take` vs. `analysis` and `reaction`)
+     Our confusion matrix revealed that error leakage is concentrated on the boundaries bordering `hot_take` and `reaction` (2 real `reaction` posts called `analysis`, and 2 real `reaction` posts called `hot_take`). `hot_take` acts as an unstable semantic middle ground: in Reddit music production threads, commenters frequently deliver dogmatic workflow claims using casual, colloquial phrasing ("clip your master, it just sounds better"). When random seed sampling draws a held-out test split with more colloquial jargon, the model's ability to isolate unbacked dogma from emotional reaction degrades rapidly.
+
+     2. Evidence from the Agreement Report (Model Problem vs. Labeling Problem)
+     In our Agreement Report against the staff annotations, 1 of our 3 disagreements sat squarely in Pile (a) on Post 1 ("Times are down about 3% since the shoe rules changed..."), where decorative numbers were initially mistaken for load-bearing analysis. However, 2 out of 3 disagreements stemmed from genuine boundary ambiguity (Pile b on figurative hyperbole, and Pile c on n=1 personal anecdotes used to argue general claims). 
+
+     Because our agreement rate reached 90.0% and our decision rules held consistently on checkable cases, this performance drop on Seed 2024 is primarily a model sample-efficiency problem rather than erratic ground-truth labeling. With only ~47 training examples of `hot_take` per split, `distilbert-base-uncased` has not observed enough diverse permutations of informal syntax to reliably separate decorative rhetoric from technical evidence when the test set contains nuanced phrasing.
 
 
 ---
