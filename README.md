@@ -304,7 +304,7 @@ of next unit's variance. -->
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** 27 / 30 = 90%
 
 <!-- Nobody grades this number. A 60% who argues every disagreement from the
      stated rules beats a 95% who wrote "staff was right" nine times. Several
@@ -327,24 +327,36 @@ of next unit's variance. -->
      what you did across your own 200. -->
 
 **1.**
-> *The post:*
+> *The post:* "Times are down about 3% since the shoe rules changed, so obviously the shoes are the whole story and the sport has a problem."
 >
-> *Staff said / I said:*
+> *Staff said / I said:* Staff said `hot_take` / I said `analysis`
 >
-> *My call, and why:*
+> *My call, and why:* Staff was right. I saw "3%" and "shoe rules changed" and immediately tagged it as `analysis`. But Decision Rule 1 explicitly states that the fact must carry the argument rather than decorate it. The leap to "obviously the shoes are the whole story and the sport has a problem" is an unargued, sweeping conclusion that uses the percentage merely as rhetorical decoration. I applied the rule loosely by relying on keyword recognition instead of assessing whether the fact was truly load-bearing.
 >
-> *Which pile:*
+> *Which pile:* (a) the rule covered it and I applied it loosely
 
 **2.**
-> *The post:*
+> *The post:* "Wind was so bad on the out section I was leaning at about 20 degrees. Coming back felt like cheating."
 >
-> *Staff said / I said:*
+> *Staff said / I said:* Staff said `reaction` / I said `hot_take`
 >
-> *My call, and why:*
+> *My call, and why:* The taxonomy rules have an unaddressed gap when figurative exaggeration describes physical conditions. Staff labeled it `reaction` because it describes the writer's immediate feeling during the run. I labeled it `hot_take` because "Coming back felt like cheating" asserts an unsupported claim about the course conditions, and "leaning at about 20 degrees" presents a pseudo-quantitative assertion. The rules do not specify whether figurative numbers used to convey mood default to emotional reporting or unsupported factual claims.
 >
-> *Which pile:*
+> *Which pile:* (b) the rule genuinely doesn't say
+
+**3.**
+> *The post:* "Carbon plates aren't the whole story. My times dropped 2% in the shoes and another 2% the following year in the same pair, when the only thing that changed was going from 35 to 50 miles a week."
+>
+> *Staff said / I said:* Staff said `analysis` / I said `hot_take`
+>
+> *My call, and why:* My reading is defensible. While the author provides explicit numbers (2% drop, 35 to 50 miles a week), the thesis is a broad generalized conclusion about athletic shoe technology ("Carbon plates aren't the whole story") inferred entirely from an $n=1$ personal anecdote over two years with unisolated variables. Under the core definition, a single runner's retrospective mileage change is subjective self-reporting rather than an objective, checkable comparative test. Treating an unverified individual testimonial as definitive analysis blurs the line between personal hot takes and rigorous technical breakdown.
+>
+> *Which pile:* (c) the rule is ambiguous here and my reading is defensible
 
 **What the pattern in my disagreements tells me:**
+My disagreements reveal two clear patterns:
+1. I have an initial bias toward treating numerical indicators (percentages, degrees) as `analysis` on first pass, even when those numbers function as narrative hyperbole or decorative flourishes rather than rigorous proof (as shown in post 1).
+2. The boundary between an unproven personal narrative and an objective technical case study (post 3) is inherently ambiguous when an author uses precise numbers to argue a general premise. This explains why my own model had trouble distinguishing between `reaction` and `analysis` in the confusion matrix when community members discussed their studio gear and audio setups.
 
 
 
