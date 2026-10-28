@@ -373,25 +373,31 @@ My disagreements reveal two clear patterns:
 ## The Improvement
 
 **What I changed:**
+Audited and relabeled 6 borderline posts along the `hot_take` vs. `reaction` boundary in `labels.csv` (rows 91, 93, 94, 96, 108, and 172). Specifically, posts describing personal workstation setups, conversational agreements ("Good point"), and first-person plugin testimonials ("I personally prefer", "As a dubstep producer I use") were re-anchored to `reaction`. This was intended to clean up the definition so that `hot_take` strictly contained generalized, prescriptive claims rather than first-person conversational self-reports.
 
 **Which diagnosis pointed at it:**
+The Milestone 4 diagnosis and confusion matrix showed error leakage concentrated on `reaction` posts spilling into `hot_take` (2 misclassifications), while `hot_take` had the highest seed variance (spread of 0.247) and came closest to missing the floor. In addition, the staff Agreement Report highlighted an annotator bias where strong tone and equipment mentions were loosely categorized as opinionated claims rather than conversational reactions.
 
 ### Run Log — After
 
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.65 | 0.700 | 0.867 | 0.667 | MET |
+| 2. Macro F1 | ≥ 0.60 | 0.691 | 0.869 | 0.574 | MISSED |
+| 3. F1 — `analysis` | ≥ 0.60 | 0.741 | 0.833 | 0.741 | MET |
+| 4. F1 — `reaction` | ≥ 0.60 | 0.706 | 0.900 | 0.783 | MET |
+| 5. F1 — `hot_take` | ≥ 0.50 | 0.625 | 0.875 | 0.200 | MISSED |
 
 **Did it help, and how do I know:**
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
 
+     No, it did not help; it actually increased variance and destabilized the model across seeds. 
 
+     I know because accuracy moved by 0.200 across seeds (from 0.667 on Seed 2024 up to 0.867 on Seed 7), which is double the 10-point threshold for stability. Moving 6 posts out of `hot_take` thinned its class count down to 61 (30.5% of the data), leaving only about 9 instances in each test split. On Seed 2024, the model collapsed on `hot_take`, producing an F1 of only 0.200 and dragging Macro F1 down to 0.574 (missing Criteria 2 and 5). 
+
+     This proves that with only 200 total posts, relabeling a subtle boundary can inadvertently starve an already difficult class of training support, making performance heavily dependent on test split draw rather than genuine model learning.
 
 ---
 
@@ -399,12 +405,12 @@ My disagreements reveal two clear patterns:
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
-
+     Criterion 2 (Macro F1 ≥ 0.60) and Criterion 5 (F1 for `hot_take` ≥ 0.50) were missed on Seed 2024. To fix this, I would collect 40 to 50 additional genuine `hot_take` posts from the subreddit to increase representation from 61 to over 100 examples, rather than shifting existing borderline rows between classes. I stopped because the project scope is fixed at 200 posts, and diagnosing why small-sample relabeling induced cross-seed volatility provides the exact empirical answer this unit measures.
 
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
-
+     I intended my taxonomy to separate prescriptive dogma from grounded technical guidance, but the model learned to treat production vocabulary as an automatic trigger for `analysis`. As a result, the model systematically misclassified opinionated dogma as technical breakdown (4 real `hot_take` posts called `analysis` and 0 the other way), confusing the mere mention of audio terms with rigorous evidence.
 
 
 <!-- ═════════════════════════════════════════════════════════════════════
